@@ -10,6 +10,8 @@ import CustomerTable from './components/CustomerList';
 import CustomerForm from './components/CustomerForm';
 import WorkspaceList from './components/WorkspaceList';
 import WorkspaceForm from './components/WorkspaceForm';
+import BookingList from './components/BookingList';
+import BookingForm from './components/BookingForm';
 
 function App() {
 	return (
@@ -19,8 +21,10 @@ function App() {
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='/login' element={<Login />} />
-						<Route path='/data-table' element={<TableDemo />} />
+						{/* <Route path='/data-table' element={<TableDemo />} /> */}
 						<Route path='/customers' element={<CustomerTable />} />
+						<Route path='/bookings' element={<BookingList />} />
+						<Route path='/booking/:id' element={<BookingForm />} />
 						<Route path='/workspaces' element={<WorkspaceList />} />
 						<Route path='/workspace/:id' element={<WorkspaceForm />} />
 						<Route path='/customer/:id' element={<CustomerForm />} />

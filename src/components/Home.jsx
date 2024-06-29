@@ -7,17 +7,23 @@ const Home = () => {
 	return (
 		<>
 			<div className='d-flex justify-content-center align-items-center gap-2 vh-100'>
-				<WrappedButton
+				{/* <WrappedButton
 					className='btn btn-outline-secondary'
 					onClick={() => navigate('/data-table')}
 					hotkey={'d'}>
 					Data Table
-				</WrappedButton>
+				</WrappedButton> */}
 				<WrappedButton
 					className='btn btn-outline-secondary'
 					onClick={() => navigate('/customers')}
 					hotkey={'p'}>
 					Customer
+				</WrappedButton>
+				<WrappedButton
+					className='btn btn-outline-secondary'
+					onClick={() => navigate('/bookings')}
+					hotkey={'b'}>
+					Bookings
 				</WrappedButton>
 				<WrappedButton
 					className='btn btn-outline-secondary'

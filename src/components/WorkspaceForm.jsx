@@ -7,7 +7,6 @@ const WorkspaceForm = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
-		id: '',
 		name: '',
 		location: '',
 		city: '',

@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = ({ setCreateAccount }) => {
   const {
@@ -9,9 +11,22 @@ const SignIn = ({ setCreateAccount }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Handle successful form submission here
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post('http://localhost:8000/api/login', data);
+      console.log('Login successful:', response.data);
+
+      // Save the access token to localStorage
+      localStorage.setItem('access_token', response.data.access_token);
+
+      // Redirect to the home page
+      navigate('/');
+    } catch (error) {
+      console.error('Login failed:', error.response ? error.response.data : error.message);
+      // Handle login failure (e.g., display error message)
+    }
   };
 
   return (
