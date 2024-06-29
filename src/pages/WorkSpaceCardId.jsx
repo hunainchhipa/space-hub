@@ -32,7 +32,6 @@ const WorkSpaceCardId = () => {
   const [hoveredImage, setHoveredImage] = useState(productImages[0]?.image);
   const [activeImage, setActiveImage] = useState(productImages[0]?.id);
   const [quantity, setQuantity] = useState(0);
-  const [pricePerKg, setPricePerKg] = useState(0);
   const navigate = useNavigate();
 
   //   const makePayment = async () => {

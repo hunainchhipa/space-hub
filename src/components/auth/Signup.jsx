@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -9,9 +10,20 @@ const SignUp = ({ setCreateAccount }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
-    // handle form submission
+
+    try {
+      const response = await axios.post(
+        "http://192.168.1.2:8000/api/register",
+        data
+      );
+    } catch (error) {
+      console.error(
+        "Register failed:",
+        error.response ? error.response.data : error.message
+      );
+    }
   };
 
   return (
@@ -22,11 +34,11 @@ const SignUp = ({ setCreateAccount }) => {
           <Form.Control
             type="text"
             placeholder="John"
-            isInvalid={!!errors.firstName}
-            {...register("firstName", { required: "First name is required" })}
+            isInvalid={!!errors.first_name}
+            {...register("first_name", { required: "First name is required" })}
           />
-          {errors.firstName && (
-            <p className="text-danger">{errors.firstName.message}</p>
+          {errors.first_name && (
+            <p className="text-danger">{errors.first_name.message}</p>
           )}
         </Form.Group>
 
@@ -35,26 +47,26 @@ const SignUp = ({ setCreateAccount }) => {
           <Form.Control
             type="text"
             placeholder="Smith"
-            isInvalid={!!errors.lastName}
-            {...register("lastName", { required: "Last name is required" })}
+            isInvalid={!!errors.last_name}
+            {...register("last_name", { required: "Last name is required" })}
           />
-          {errors.lastName && (
-            <p className="text-danger">{errors.lastName.message}</p>
+          {errors.last_name && (
+            <p className="text-danger">{errors.last_name.message}</p>
           )}
         </Form.Group>
 
-        <Form.Group className="mb-2" controlId="formBasicEmail">
+        <Form.Group className="mb-2" controlId="formBasicUserName">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
             placeholder="johnsmith"
-            isInvalid={!!errors.userName}
-            {...register("userName", {
+            isInvalid={!!errors.user_name}
+            {...register("user_name", {
               required: "Username is required",
             })}
           />
-          {errors.userName && (
-            <p className="text-danger">{errors.userName.message}</p>
+          {errors.user_name && (
+            <p className="text-danger">{errors.user_name.message}</p>
           )}
         </Form.Group>
 
@@ -82,8 +94,8 @@ const SignUp = ({ setCreateAccount }) => {
           <Form.Control
             type="tel"
             placeholder="9837636786"
-            isInvalid={!!errors.phone}
-            {...register("phone", {
+            isInvalid={!!errors.mobile_number}
+            {...register("mobile_number", {
               required: "Phone number is required",
               pattern: {
                 value: /^[0-9]{10}$/,
@@ -91,8 +103,8 @@ const SignUp = ({ setCreateAccount }) => {
               },
             })}
           />
-          {errors.phone && (
-            <p className="text-danger">{errors.phone.message}</p>
+          {errors.mobile_number && (
+            <p className="text-danger">{errors.mobile_number.message}</p>
           )}
         </Form.Group>
 
