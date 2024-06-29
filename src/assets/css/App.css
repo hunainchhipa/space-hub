@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.form-control:focus {
+  border-color: #5f9ea0 !important;
+  box-shadow: none !important;
+  background-color: #f9f9f9 !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.login-container {
+  background: #e7f3ed;
+}
+
+.login-info-text {
+  color: #333;
+}
+
+.login-form {
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.login-form h2 {
+  font-family: "Helvetica", sans-serif;
+  color: #5f9ea0;
+}
+
+.login-form .form-control {
+  border-radius: 5px;
+}
+
+.login-form .btn-primary {
+  background-color: #5f9ea0;
+  border: none;
+}
+.login-form .btn-primary:hover {
+  background-color: #50888a;
+  border: none;
+}
+
+.login-form .btn-outline-secondary {
+  border: 1px solid #5f9ea0;
+  color: #5f9ea0;
+}
+
+.login-form .btn-outline-secondary:hover {
+  background-color: #5f9ea0;
+  color: white;
+}
