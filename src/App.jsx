@@ -17,31 +17,41 @@ import WorkspaceList from "./components/WorkspaceList";
 import WorkspaceForm from "./components/WorkspaceForm";
 import BookingList from "./components/BookingList";
 import BookingForm from "./components/BookingForm";
+import Header from "./components/Header.jsx";
+import WorkSpacePage from "./pages/WorkSpacePage.jsx";
 
 function App() {
+  return (
+    <Router>
+      <HotkeyProvider>
+        <Main />
+      </HotkeyProvider>
+    </Router>
+  );
+}
+
+function Main() {
   const isAuthUser = localStorage?.getItem("access_token");
   return (
     <>
-      <HotkeyProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route
+      {location?.pathname !== "/login" && <Header />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route
               path="/"
               element={isAuthUser ? <Home /> : <Navigate to={"/login"} />}
             /> */}
-            <Route path="/login" element={<Login />} />
-            {/* <Route path='/data-table' element={<TableDemo />} /> */}
-            <Route path="/customers" element={<CustomerTable />} />
-            <Route path="/bookings" element={<BookingList />} />
-            <Route path="/booking/:id" element={<BookingForm />} />
-            <Route path="/workspaces" element={<WorkspaceList />} />
-            <Route path="/workspace/:id" element={<WorkspaceForm />} />
-            <Route path="/customer/:id" element={<CustomerForm />} />
-            <Route path="/charts" element={<Charts />} />
-          </Routes>
-        </Router>
-      </HotkeyProvider>
+        <Route path="/login" element={<Login />} />
+        {/* <Route path='/data-table' element={<TableDemo />} /> */}
+        <Route path="/customers" element={<CustomerTable />} />
+        <Route path="/bookings" element={<BookingList />} />
+        <Route path="/booking/:id" element={<BookingForm />} />
+        <Route path="/workspaces" element={<WorkspaceList />} />
+        <Route path="/workspace/:id" element={<WorkspaceForm />} />
+        <Route path="/customer/:id" element={<CustomerForm />} />
+        <Route path="/charts" element={<Charts />} />
+        <Route path="/workspace-page" element={<WorkSpacePage />} />
+      </Routes>
     </>
   );
 }

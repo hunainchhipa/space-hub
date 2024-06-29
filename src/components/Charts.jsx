@@ -13,7 +13,7 @@ const Charts = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="container my-5">
+      <div className="container body-otr mb-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h1 className="text-secondary fw-bold mb-0">Charts!</h1>
           <WrappedButton

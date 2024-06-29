@@ -13,10 +13,34 @@
   box-shadow: none !important;
   background-color: #f9f9f9 !important;
 }
+
+.form-check .form-check-input {
+  border: none;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* Navbar CSS Start */
+.nav-otr {
+  box-shadow: 0px 3px 6px #00000029;
+  background-color: #fff !important;
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 9;
+}
+.title {
+  color: #50888a !important;
+}
+/* Navbar CSS End */
+
+.body-otr {
+  margin-top: 120px;
 }
 
 .login-container {
@@ -38,13 +62,18 @@ input::-webkit-inner-spin-button {
   color: #5f9ea0;
 }
 
-.login-form .form-control {
+.form-control {
   border-radius: 5px;
 }
 
-.login-form .btn-primary {
-  background-color: #5f9ea0;
-  border: none;
+.datepicker-otr .ant-space,
+.datepicker-otr .ant-picker {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #5f9ea0 !important;
+  border: none !important;
 }
 .login-form .btn-primary:hover {
   background-color: #50888a;
@@ -60,3 +89,147 @@ input::-webkit-inner-spin-button {
   background-color: #5f9ea0;
   color: white;
 }
+
+.hover-text {
+  transition: 0.1s ease-in-out;
+}
+.hover-text:hover {
+  color: #5f9ea0 !important;
+  text-decoration: underline;
+}
+
+/* Work Space Page CSS Start */
+.hotel-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.thumbnail-container img {
+  max-width: 60px;
+  border-radius: 4px;
+}
+
+.stars {
+  color: gold;
+}
+
+.location {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.features {
+  color: brown;
+}
+
+.rating {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.rating-score {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #007bff;
+}
+
+.ratings {
+  color: grey;
+}
+
+.price {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000;
+}
+
+.taxes {
+  font-size: 0.8em;
+  color: grey;
+}
+
+.login-link {
+  color: #007bff;
+  font-size: 0.9em;
+  text-decoration: none;
+  padding: 0;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+.img-preview {
+  height: 150px;
+}
+/* Work Space Page CSS End */
+
+/* product details css start */
+.product-details .img-blocks {
+  width: 38px;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.product-details .img-blocks img {
+  border-radius: 10px;
+}
+.product-details .img-blocks.shadow {
+  box-shadow: 0px 0px 2px 2px #c8f3f8 !important;
+  border: 1px solid #007185 !important;
+}
+.product-details .brand-name {
+  color: #007185;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.product-details .brand-name:hover {
+  text-decoration: underline;
+  color: #f1823b;
+}
+.product-details .product-name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+.product-details .offer-price {
+  font-size: 30px;
+  font-weight: 500;
+}
+.product-details .original-price {
+  font-size: 12px;
+}
+.product-details .EMI-options {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+.counter-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.counter-input {
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+/* product details css end  */
