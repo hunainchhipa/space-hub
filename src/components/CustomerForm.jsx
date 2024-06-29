@@ -18,6 +18,7 @@ const CustomerForm = () => {
         postal_code: '',
         country: '',
     });
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         if (id !== 'new') {
@@ -29,13 +30,7 @@ const CustomerForm = () => {
             })
                 .then(response => {
                     const customer = response.data.data;
-                    const updatedFormData = { ...formData };
-                    for (const key in updatedFormData) {
-                        if (customer.hasOwnProperty(key)) {
-                            updatedFormData[key] = customer[key] || '';
-                        }
-                    }
-                    setFormData(updatedFormData);
+                    setFormData(customer);
                 })
                 .catch(error => {
                     console.error('Error fetching customer:', error);
@@ -62,7 +57,7 @@ const CustomerForm = () => {
                     navigate('/customers');
                 })
                 .catch(error => {
-                    console.error('Error creating customer:', error);
+                    setError(error.response.data.message || 'An error occurred while creating customer.');
                 });
         } else {
             axios.put(`http://localhost:8000/api/customers/${id}`, formData, {
@@ -74,7 +69,7 @@ const CustomerForm = () => {
                     navigate('/customers');
                 })
                 .catch(error => {
-                    console.error('Error updating customer:', error);
+                    setError(error.response.data.message || 'An error occurred while updating customer.');
                 });
         }
     };

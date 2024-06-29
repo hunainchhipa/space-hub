@@ -20,7 +20,6 @@ const CustomerList = () => {
             }
         })
             .then(response => {
-				console.log(response.data.data)
                 setData(response.data.data);
             })
             .catch(error => {
@@ -53,7 +52,7 @@ const CustomerList = () => {
     });
 
     const columns = [
-        { name: 'ID', selector: (row) => row.id, sortable: true },
+        // { name: 'ID', selector: (row) => row.id, sortable: true },
         {
             name: 'Name',
             selector: (row) => `${row.first_name} ${row.last_name}`,
@@ -62,7 +61,36 @@ const CustomerList = () => {
         { name: 'Email', selector: (row) => row.email, sortable: true },
         { name: 'Number', selector: (row) => row.mobile_number, sortable: true },
         { name: 'State', selector: (row) => row.state, sortable: true },
+        {
+            name: 'Actions',
+            cell: (row) => (
+                <WrappedButton
+                    className='btn btn-danger'
+                    onClick={() => handleDelete(row.id)}
+                >
+                    Delete
+                </WrappedButton>
+            ),
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+        },
     ];
+
+    const handleDelete = (id) => {
+        const token = localStorage.getItem('access_token');
+        axios.delete(`http://localhost:8000/api/customers/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            setData(data.filter(item => item.id !== id));
+        })
+        .catch(error => {
+            console.error('Error deleting customer:', error);
+        });
+    };
 
     const handleRowClicked = (row) => {
         navigate(`/customer/${row.id}`);
@@ -75,7 +103,7 @@ const CustomerList = () => {
                 <WrappedButton
                     className='btn btn-outline-secondary'
                     onClick={() => navigate('/')}
-                    hotkey='b'>
+                >
                     Back
                 </WrappedButton>
             </div>
@@ -95,7 +123,7 @@ const CustomerList = () => {
             <WrappedButton
                 className='btn btn-primary'
                 onClick={() => navigate(`/customer/new`)}
-                hotkey='a'>
+            >
                 Add Customer
             </WrappedButton>
             <DataTable

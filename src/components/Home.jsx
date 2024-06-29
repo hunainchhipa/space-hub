@@ -28,7 +28,7 @@ const Home = () => {
 				<WrappedButton
 					className='btn btn-outline-secondary'
 					onClick={() => navigate('/workspaces')}
-					hotkey={'p'}>
+					hotkey={'w'}>
 					WorkSpace
 				</WrappedButton>
 				<WrappedButton
