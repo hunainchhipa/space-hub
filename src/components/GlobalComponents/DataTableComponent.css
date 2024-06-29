@@ -1,0 +1,8 @@
+/* styles.css */
+.edit-icon {
+cursor: pointer;
+}
+
+.edit-icon:hover {
+opacity: 0.7;
+}
